@@ -1,2 +1,2 @@
 # Aprendendo-C
-Aprendendo a linguagem C e C++
+Aprendendo as linguagens C e C++
