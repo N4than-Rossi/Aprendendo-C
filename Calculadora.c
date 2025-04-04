@@ -31,12 +31,12 @@ int main() {
 
 
     printf("Digite o primeiro número:");
-    float n1;
-    scanf(" %f",&n1);
+    double n1;
+    scanf(" %lf",&n1);
 
     printf("Digite o segundo número:");
-    float n2;
-    scanf(" %f",&n2);
+    double n2;
+    scanf(" %lf",&n2);
 
     switch (a){
         case 1 :{
@@ -80,5 +80,6 @@ int main() {
     return 0;
 
 }
+
 
 
