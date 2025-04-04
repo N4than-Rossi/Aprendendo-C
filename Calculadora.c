@@ -7,7 +7,7 @@ int main() {
 
         printf("\033[H\033[J");
         printf("===============================\n");
-        printf("Calculadora Simples\n");
+        printf("   Calculadora Simples\n");
         printf("===============================\n");
         printf("Selecione uma operação:\n");
         printf("1. Adição\n");
@@ -66,13 +66,13 @@ int main() {
         printf("Deseja realizar outra operação? (s/n):");
         char aux;
         scanf(" %c",&aux);
-        if (aux !='s' && aux != 'n'){
+        if (aux !='s' && aux != 'n' && aux != 'S' && aux != 'N'){
             printf("Resposta inválida. Por favor, digite 's' para sim ou 'n' para não.\n");
-            while (scanf(" %c",&aux) && (aux!='s' && aux!='n')){
+            while (scanf(" %c",&aux) && (aux!='s' && aux!='n' && aux != 'S' && aux != 'N')){
                 printf("Resposta inválida. Por favor, digite 's' para sim ou 'n' para não.\n");
             }
         }
-        if (aux == 'n'){
+        if (aux == 'n' || aux == 'N'){
             break;
         }
     }
