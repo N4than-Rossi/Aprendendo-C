@@ -3,7 +3,12 @@
 
 int main (){
 
-    int a=1;
+
+    int a=1, qnt;
+    //FILE *p;
+    char c[200];
+    char temp[100][200];
+    int temp1[100];
     FILE *p = fopen("estoque.txt", "w");
     fclose(p);//inicializando arquivo em branco
 
@@ -32,62 +37,93 @@ int main (){
 
         switch (a){
             case 1:{
-                char c[200];
-                int qnt;
+
                 printf("Digite o nome do item: ");
-                int z=0;
-                while (z!=-1){
-                    scanf("%c",&c[z]);
-                    if ((c[z] == '\n')&&z>0){
-                        z=-2;
-                    }
-                    if(c[z]!='\n'){ //funciona para não ter o '\n' no inicio da string
-                    z++;}
-                }
+                scanf(" %s",&c);
                 printf("Digite a quantidade: ");
                 scanf(" %d",&qnt);
+
                 //--------------------------------------------
                 //manipulação do arquivo:
-                FILE *p;
+
                 p = fopen("estoque.txt", "a");
-                fprintf(p,"%s%d\n",c,qnt);
+                fprintf(p,"%s\n%d\n",c,qnt);
                 fclose(p);
                 //--------------------------------------------
                 printf("Item adicionado com sucesso!\n");
                 break;
             }
             case 2:{
-                char c[200];
-                int qnt;
+
+                p = fopen("estoque.txt", "r");
                 printf("Digite o nome do item: ");
-                int z=0;
-                while (z!=-1){
-                    scanf("%c",&c[z]);
-                    if ((c[z] == '\n')&&z>0){
-                        z=-2;
-                    }
-                    if(c[z]!='\n'){ //funciona para não ter o '\n' no inicio da string
-                    z++;}
-                }
+                scanf(" %s",&c);
                 printf("Digite a quantidade a ser removida: ");
                 scanf(" %d",&qnt);
                 //
-                //adicionar sistema de retirada do estoque
-                //
+                char c2[200];
+                int qnt2,kjk=1;
+                int i=0;
+                while ((fscanf(p," %s %d", &c2, &qnt2))==2){
+                    if(strcmp(c, c2) == 0){
+                        fclose(p);
+                        kjk=0;
+                        p = fopen("estoque.txt", "a");
+
+                        if(qnt==qnt2){
+                            printf("Item removido do estoque!\n");
+                            //adicionar remoção
+                        }
+                        else if(qnt<qnt2){
+                            printf("Quantidade atualizada com sucesso!\n");
+                            strcpy(temp[i], c2);
+                            temp1[i] = qnt2-qnt;
+                            i++;
+                            //atualizar quantia
+                        }
+                        else {
+                            printf("Estoque insuficiente. Quantidade disponível: %d\n",qnt2);
+                            strcpy(temp[i], c2);
+                            temp1[i] = qnt2;
+                            i++;
+                        }
+                    }
+                    else {
+                        strcpy(temp[i], c2);
+                        temp1[i] = qnt2;
+                        i++;
+                    }
+                }
+                if (kjk){printf("Item não encontrado.\n");}
+                fclose(p);
+
+                p = fopen("estoque.txt", "w");
+                for(int j=0;j<i;j++){
+                    fprintf(p,"%s\n%d\n",temp[j],temp1[j]);
+                }
+                fclose(p);
                 break;
            }
            case 3:{
-               //
-               //ler o conteúdo do estoque do arquivo
-               //
+
+                p = fopen("estoque.txt", "r");
+
+                int cu = fgetc(p);
+               if (cu == EOF){
+                    printf("O estoque está vazio.\n");
+                    fclose(p);
+                    break;
+               }
+                rewind(p);
                printf("\033[H\033[J");
                printf("=============================\n");
                printf("        Estoque Atual\n");
                printf("=============================\n");
+               while( fscanf(p, "%s %d", &c, &qnt) == 2 ){
+                printf("Nome: %s\nQuantidade: %d\n\n",c,qnt);
+               }
+               fclose(p);
                 break;
-                //
-                //adicionar leitura de estoque
-                //
 
            }
             case 4:{
@@ -103,5 +139,6 @@ int main (){
 
     }
     printf("Obrigado por usar o Controle de Estoques! Até a próxima.");
+
 }
 
