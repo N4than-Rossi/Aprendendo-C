@@ -64,11 +64,12 @@ int main (){
                 char c2[200];
                 int qnt2,kjk=1;
                 int i=0;
-                while ((fscanf(p," %s %d", &c2, &qnt2))==2){
+                while ((fscanf(p," %s %d", c2, &qnt2))==2){
+                    //fclose(p);
                     if(strcmp(c, c2) == 0){
-                        fclose(p);
+
                         kjk=0;
-                        p = fopen("estoque.txt", "a");
+                        //p = fopen("estoque.txt", "a");
 
                         if(qnt==qnt2){
                             printf("Item removido do estoque!\n");
@@ -93,7 +94,9 @@ int main (){
                         temp1[i] = qnt2;
                         i++;
                     }
+                    //fclose(p);
                 }
+                printf("%d\n\n",i);
                 if (kjk){printf("Item não encontrado.\n");}
                 fclose(p);
 
