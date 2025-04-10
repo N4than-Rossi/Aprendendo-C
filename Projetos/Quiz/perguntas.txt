@@ -1,0 +1,70 @@
+
+1) Pergunta?
+A) Opcao 1
+B) Opcao 2
+C) Opcao 3
+D) Opcao 4
+B
+
+2) Pergunta?
+A) Opcao 1
+B) Opcao 2
+C) Opcao 3
+D) Opcao 4
+B
+
+3) Pergunta?
+A) Opcao 1
+B) Opcao 2
+C) Opcao 3
+D) Opcao 4
+B
+
+4) Pergunta?
+A) Opcao 1
+B) Opcao 2
+C) Opcao 3
+D) Opcao 4
+B
+
+5) Pergunta?
+A) Opcao 1
+B) Opcao 2
+C) Opcao 3
+D) Opcao 4
+B
+
+6) Pergunta?
+A) Opcao 1
+B) Opcao 2
+C) Opcao 3
+D) Opcao 4
+B
+
+7) Pergunta?
+A) Opcao 1
+B) Opcao 2
+C) Opcao 3
+D) Opcao 4
+B
+
+8) Pergunta?
+A) Opcao 1
+B) Opcao 2
+C) Opcao 3
+D) Opcao 4
+B
+
+9) Pergunta?
+A) Opcao 1
+B) Opcao 2
+C) Opcao 3
+D) Opcao 4
+B
+
+10) Pergunta?
+A) Opcao 1
+B) Opcao 2
+C) Opcao 3
+D) Opcao 4
+B
