@@ -26,6 +26,8 @@ int main (){
     p = fopen("perguntas.txt","a");
     if (p==NULL){
         printf("Erro: Arquivo 'perguntas.txt' nao encontrado ou invalido.");
+        fclose(p);
+        return 0;
     }
     fclose(p);
 
@@ -35,6 +37,11 @@ int main (){
     char a[100];
     int i,ii;
     p = fopen("perguntas.txt","r");
+    if (p==NULL){
+        printf("Erro: Arquivo 'perguntas.txt' nao encontrado ou invalido.");
+        fclose(p);
+        return 0;
+    }
 
     char c;
     while (feof(p) == 0){
@@ -78,7 +85,14 @@ int main (){
 //-------------------------------------------------------------------------------------------------------
 //daqui para baixo ele analisa o ranking:
 
+    p = fopen("perguntas.txt","a");
+    fclose(p);
+
     ifstream f("ranking.txt");
+    if (!f.is_open()) {
+        ofstream create("ranking.txt");
+        create.close();
+    }
     string str;
     int kk=0,nk=0;
     pair<string,int> par[25];
@@ -100,12 +114,15 @@ int main (){
     f.close();
     ofstream f2("ranking.txt");
 
+    system("cls");
+    cout<<"\n-------------------------\nRanking:\n";
+
     for (int y=0;y<=kk-nk;y++){
         f2<<par[y].first<<" "<<par[y].second<<" "<<endl;
+        cout<<par[y].first<<" "<<par[y].second<<" "<<endl;
     }
 
 
 
     f2.close();
 }
-
